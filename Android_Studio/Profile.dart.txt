@@ -1,28 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:trial/settings.dart';
-import 'package:trial/firstpage.dart';
+import 'package:trial/profile.dart';
 
-class Profile extends StatelessWidget {
+class FirstPage extends StatelessWidget {
 
   @override
 
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:ProfilePage(),
+      home:FirstPageHome(),
       debugShowCheckedModeBanner: false,
     );
 
   }
 }
 
-class ProfilePage extends StatelessWidget{
+class FirstPageHome extends StatelessWidget{
   @override
 
   Widget build(BuildContext context){
     return Scaffold(
+      drawer: Drawer(
+          child: ListView(
+            children: [
+              SizedBox(
+                height:200,
+                child: DrawerHeader(
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundImage: AssetImage('image/s.jpg'),
+                      ),
+                      SizedBox(height: 10),
+                      Text('Justine Kyle')
+                    ],
+                  ),
+                ),
+              ),
+              ListTile(
+
+              )
+            ],
+          )
+          
+      ),
         appBar: AppBar(
           backgroundColor: Colors.blue ,
-          title: Text('Profile',style: TextStyle(
+          title: Text('Home',style: TextStyle(
               fontFamily: 'Montserrat',
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -30,7 +55,40 @@ class ProfilePage extends StatelessWidget{
           ),),
           centerTitle: true,
         ),
-
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 55,
+                        backgroundImage: NetworkImage('data:image/webp;base64,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'),
+                      ),
+                      SizedBox(height: 10),
+                      Text('Justine Kyle'),
+                    ],
+                  ),
+                  width: 300,
+                  height: 250,
+                  decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                    border: Border.all(color: Colors.black,width: 3),
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(color: Colors.black26, blurRadius: 10, offset: Offset(5,5))
+                    ],
+                  ),
+                  padding: EdgeInsets.all(20),
+                ),
+              ],
+            ),
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
             onTap: (x){
               switch(x){
@@ -46,7 +104,7 @@ class ProfilePage extends StatelessWidget{
             },
             backgroundColor: Colors.blue,
             selectedItemColor: Colors.white,
-            currentIndex: 1,
+            currentIndex: 0,
 
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),

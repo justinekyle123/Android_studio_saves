@@ -20,6 +20,31 @@ class SettingsPage extends StatelessWidget{
 
   Widget build(BuildContext context){
     return Scaffold(
+        drawer: Drawer(
+            child: ListView(
+              children: [
+                SizedBox(
+                  height:200,
+                  child: DrawerHeader(
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 60,
+                          backgroundImage: AssetImage('image/s.jpg'),
+                        ),
+                        SizedBox(height: 10),
+                        Text('Justine Kyle')
+                      ],
+                    ),
+                  ),
+                ),
+                ListTile(
+
+                )
+              ],
+            )
+
+        ),
         appBar: AppBar(
           backgroundColor: Colors.blue ,
           title: Text('Settings',style: TextStyle(
