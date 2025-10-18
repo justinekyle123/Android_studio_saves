@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+import 'package:trial/settings.dart';
+import 'package:trial/firstpage.dart';
+
+class Profile extends StatelessWidget {
+
+  @override
+
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home:ProfilePage(),
+      debugShowCheckedModeBanner: false,
+    );
+
+  }
+}
+
+class ProfilePage extends StatelessWidget{
+  @override
+
+  Widget build(BuildContext context){
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blue ,
+          title: Text('Profile',style: TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          ),),
+          centerTitle: true,
+        ),
+
+        bottomNavigationBar: BottomNavigationBar(
+            onTap: (x){
+              switch(x){
+                case 0:
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=> FirstPage()));
+                  break;
+                case 1:
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=> Profile()));
+                  break;
+                case 2:
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext)=> Settings()));
+              }
+            },
+            backgroundColor: Colors.blue,
+            selectedItemColor: Colors.white,
+            currentIndex: 1,
+
+            items: [
+              BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+              BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Profile'),
+              BottomNavigationBarItem(icon: Icon(Icons.settings),label: 'Settinds')
+            ]
+        )
+    );
+  }
+}
