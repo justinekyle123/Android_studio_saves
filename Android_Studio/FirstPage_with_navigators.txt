@@ -20,39 +20,62 @@ class FirstPageHome extends StatelessWidget{
 
   Widget build(BuildContext context){
     return Scaffold(
-      drawer: Drawer(
-          child: ListView(
-            children: [
-              SizedBox(
-                height:200,
-                child: DrawerHeader(
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: AssetImage('image/s.jpg'),
-                      ),
-                      SizedBox(height: 10),
-                      Text('Justine Kyle')
-                    ],
+        drawer: Drawer(
+            child: ListView(
+              children: [
+                SizedBox(
+                  height:200,
+                  child: DrawerHeader(
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 60,
+                          backgroundImage: AssetImage('image/s.jpg'),
+                        ),
+                        SizedBox(height: 10),
+                        Text('Justine Kyle')
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              ListTile(
-                leading: Icon(Icons.person),
-                title: Text('Profile'),
-                // trailing: Icon(Icons.arrow_forward),
-                onTap: (){},
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('settings'),
-                onTap: (){},
-              )
-            ],
-          )
-          
-      ),
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('Profile'),
+                  // trailing: Icon(Icons.arrow_forward),
+                  onTap: (){},
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('settings'),
+                  onTap: (){},
+                ),
+                ListTile(
+                  leading: Icon(Icons.logout),
+                  title: Text('Logout'),
+                  onTap: (){
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext){
+                        return AlertDialog(
+                          title: Text('Logout'),
+                          content: Text('Are you sure?'),
+                          actions: [
+                                  TextButton(
+                                      onPressed: (){
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text('Cancel')),
+                                  TextButton(onPressed:(){}, child: Text('Yes'))
+                          ],
+                        );
+                      }
+                    );
+                  },
+                )
+              ],
+            )
+
+        ),
         appBar: AppBar(
           backgroundColor: Colors.blue ,
           title: Text('Home',style: TextStyle(
