@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trial/firstpage.dart';
 
 class Login extends StatelessWidget{
   @override
@@ -15,9 +16,73 @@ class LoginPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login Page'),
+        title: Text('Login Page',style: TextStyle(color: Colors.white)),
         centerTitle: true,
         backgroundColor: Colors.blue,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Container(
+                  height: 500,
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                   color: Colors.black12,
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                          radius: 75
+                      ),
+                      Text('Please Login'),
+
+                      SizedBox(height: 10),
+
+                      TextField(
+                          decoration: InputDecoration(
+                              labelText: 'Enter username',
+                              prefixIcon: Icon(Icons.person),
+                              border: OutlineInputBorder()
+                          )
+                      ),
+
+                      SizedBox(height: 12),
+
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: 'Enter password',
+                            prefixIcon: Icon(Icons.lock),
+                            border: OutlineInputBorder()
+                        ),
+                        obscureText: true,
+                      ),
+                      SizedBox(height: 12),
+
+                      SizedBox(
+                        height: 45,
+                        width: 500,
+                        child: ElevatedButton(
+                          onPressed: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=> FirstPage()));
+                          },
+                          child: Text('Login'),
+                        ),
+                      )
+                    ],
+                  )
+                ),
+              ),
+
+
+            ],
+          ),
+        ),
       ),
     );
   }
