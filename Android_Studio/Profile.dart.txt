@@ -1,53 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:trial/settings.dart';
-import 'package:trial/profile.dart';
+import 'package:trial/firstpage.dart';
 
-class FirstPage extends StatelessWidget {
+class Profile extends StatelessWidget {
 
   @override
 
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:FirstPageHome(),
+      home:ProfilePage(),
       debugShowCheckedModeBanner: false,
     );
 
   }
 }
 
-class FirstPageHome extends StatelessWidget{
+class ProfilePage extends StatelessWidget{
   @override
 
   Widget build(BuildContext context){
     return Scaffold(
-      drawer: Drawer(
-          child: ListView(
-            children: [
-              SizedBox(
-                height:200,
-                child: DrawerHeader(
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: AssetImage('image/s.jpg'),
-                      ),
-                      SizedBox(height: 10),
-                      Text('Justine Kyle')
-                    ],
+        drawer: Drawer(
+            child: ListView(
+              children: [
+                SizedBox(
+                  height:200,
+                  child: DrawerHeader(
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 60,
+                          backgroundImage: AssetImage('image/s.jpg'),
+                        ),
+                        SizedBox(height: 10),
+                        Text('Justine Kyle')
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              ListTile(
+                ListTile(
 
-              )
-            ],
-          )
-          
-      ),
+                )
+              ],
+            )
+
+        ),
         appBar: AppBar(
           backgroundColor: Colors.blue ,
-          title: Text('Home',style: TextStyle(
+          title: Text('Profile',style: TextStyle(
               fontFamily: 'Montserrat',
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -104,7 +104,7 @@ class FirstPageHome extends StatelessWidget{
             },
             backgroundColor: Colors.blue,
             selectedItemColor: Colors.white,
-            currentIndex: 0,
+            currentIndex: 1,
 
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
